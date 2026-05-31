@@ -7,12 +7,16 @@ import { ddayInfo } from '@/lib/dates';
 import { getCategory } from '@/lib/categories';
 import { Icons as I } from './Icons';
 
-const ALTROBOARD_URL = 'https://altroboard.vercel.app/';
-
 const NAV = [
   { href: '/',           label: '내 할일', icon: I.List },
   { href: '/stats',      label: '통계',    icon: I.Chart },
   { href: '/categories', label: '카테고리', icon: I.Tag },
+];
+
+// Altro 패밀리 다른 앱 (현재 앱 AltroTodo 제외)
+const OTHER_APPS = [
+  { label: 'AltroBoard', desc: '커뮤니티 · 게시판', url: 'https://altroboard.vercel.app/' },
+  { label: 'AltroShop',  desc: '중고거래 쇼핑몰',    url: 'https://altroshop.vercel.app/' },
 ];
 
 export default function NavBar() {
@@ -205,11 +209,19 @@ export default function NavBar() {
                   설정
                 </Link>
               )}
-              <a href={ALTROBOARD_URL} target="_blank" rel="noopener noreferrer" className="bj-drawer-item">
-                <span className="bj-drawer-item-icon"><I.Apps width={20} height={20} /></span>
-                AltroBoard 메인
-                <span className="bj-drawer-item-ext"><I.Ext width={13} height={13} /></span>
-              </a>
+              <div className="bj-drawer-apps">
+                <div className="bj-drawer-label">Altro 다른 앱</div>
+                {OTHER_APPS.map(a => (
+                  <a key={a.label} href={a.url} target="_blank" rel="noopener noreferrer" className="bj-drawer-item">
+                    <span className="bj-drawer-item-icon"><I.Apps width={20} height={20} /></span>
+                    <span className="bj-drawer-app-text">
+                      <span className="bj-drawer-app-name">{a.label}</span>
+                      <span className="bj-drawer-app-desc">{a.desc}</span>
+                    </span>
+                    <span className="bj-drawer-item-ext"><I.Ext width={13} height={13} /></span>
+                  </a>
+                ))}
+              </div>
             </nav>
 
             {user && (

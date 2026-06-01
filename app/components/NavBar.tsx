@@ -15,8 +15,9 @@ const NAV = [
 
 // Altro 패밀리 다른 앱 (현재 앱 AltroTodo 제외)
 const OTHER_APPS = [
-  { label: 'AltroBoard', desc: '커뮤니티 · 게시판', url: 'https://altroboard.vercel.app/' },
-  { label: 'AltroShop',  desc: '중고거래 쇼핑몰',    url: 'https://altroshop.vercel.app/' },
+  { label: 'AltroDashBoard', desc: 'Altro 통합 대시보드', url: 'https://altrodashboard.vercel.app/' },
+  { label: 'AltroBoard',     desc: '커뮤니티 · 게시판',    url: 'https://altroboard.vercel.app/' },
+  { label: 'AltroShop',      desc: '중고거래 쇼핑몰',       url: 'https://altroshop.vercel.app/' },
 ];
 
 export default function NavBar() {
